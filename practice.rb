@@ -29,9 +29,9 @@ blockchain = [
 # 👇👇👇 Your code HERE 👇👇👇
 
 
-for wallet in blockchain
-    receive = blockchain.where({"to_user" => wallet})["amount"]
-  pay = blockchain.where({"from_user" => wallet})["amount"]
+for wallet in blockchain.all
+  receive = blockchain.where({"to_user" => wallet["to_user"]})#how can I sum up? ["amount"]
+  pay = blockchain.where({"from_user" => wallet["from_user"]})#how can I sum up? ["amount"]
   balance = receive - pay
 end
 
