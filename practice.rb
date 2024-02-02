@@ -27,3 +27,12 @@ blockchain = [
 # Anthony's KelloggCoin balance is 2650
 
 # 👇👇👇 Your code HERE 👇👇👇
+
+
+for wallet in blockchain
+    receive = blockchain.where({"to_user" => wallet})["amount"]
+  pay = blockchain.where({"from_user" => wallet})["amount"]
+  balance = receive - pay
+end
+
+puts "#{wallet["to_user"]}'s KelloggCoin balance is #{balance}"
